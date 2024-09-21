@@ -37,6 +37,31 @@ export function Portfolio() {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+    subject: '',
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formData);
+    const response = await fetch('https://script.google.com/macros/s/AKfycbxMrq8tJ2aM3Gomtuer8U5Mha-a9fYgvuUnWAqVK69lkatRl_FHz7qqt0QJwdL7JQKt/exec', {
+      method: 'POST',
+      body: new URLSearchParams(formData),
+    });
+
+    const result = await response.text();
+    console.log(result);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
   return (
     (<div className="flex flex-col min-h-[100dvh]">
       <header
@@ -284,16 +309,16 @@ export function Portfolio() {
               <h2 className="text-3xl font-bold">Get in Touch</h2>
               <p className="text-foreground">Let's discuss how I can help elevate your social media presence.</p>
             </div>
-            <form className="bg-background p-6 rounded-lg shadow-md">
+            <form className="bg-background p-6 rounded-lg shadow-md" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-4">
-                <Input label="Name" placeholder="Enter your name" />
-                <Input label="Email" type="email" placeholder="Enter your email" />
+                <Input label="Name" placeholder="Enter your name" name="name" value={formData.name} onChange={handleChange} required/>
+                <Input label="Email" type="email" placeholder="Enter your email" name="email" value={formData.email} onChange={handleChange} required/>
               </div>
               <div className="my-4">
-                <Input label="Subject" placeholder="Enter the subject" />
+                <Input label="Subject" placeholder="Enter the subject" name="subject" value={formData.subject} onChange={handleChange} required/>
               </div>
               <div className="my-4">
-                <Textarea label="Message" placeholder="Enter your message" />
+                <Textarea label="Message" placeholder="Enter your message" name="message" value={formData.message} onChange={handleChange} required/>
               </div>
               <Button type="submit" className="mt-4">
                 Submit
