@@ -852,7 +852,7 @@ export function Portfolio() {
                   alt="Project 2"
                   className="rounded-lg mb-4"
                   style={{ aspectRatio: "400/300", objectFit: "cover" }} />
-                  <h3 className="text-2xl font-bold mb-2">{portfolio.type}</h3>
+                  <h3 className="text-2xl font-bold mb-2 text-primary">{portfolio.type}</h3>
                   {/* <p className="text-muted-foreground mb-4">
                     {portfolio.description?.map(s => s.title).join(', ')}
                   </p> */}
@@ -889,7 +889,7 @@ export function Portfolio() {
                     {service.description?.map(s => s.title).join(', ')}
                   </p>
                   <button
-                    className="bg-muted text-white py-2 px-4 rounded hover:bg-primary-foreground"
+                    className="bg-muted text-primary py-2 px-4 rounded hover:bg-primary-foreground"
                     onClick={() => openServiceModal(service)}
                   >
                     View Details
@@ -956,7 +956,7 @@ export function Portfolio() {
               </svg>
           </div>
         </section> */}
-        <section id="contact" className="py-12 px-6 bg-primary text-primary-foreground">
+        <section id="contact" className="py-12 px-6 bg-primary text-foreground">
           <div className="max-w-3xl mx-auto space-y-8">
             <div className="text-center">
               <h2 className="text-3xl font-bold text-foreground">Get in Touch</h2>
@@ -973,7 +973,7 @@ export function Portfolio() {
               <div className="my-4">
                 <Textarea label="Message" placeholder="Enter your message" name="message" value={formData.message} onChange={handleChange} required />
               </div>
-              <Button type="submit" className="mt-4">
+              <Button type="submit" className="mt-4 text-foreground">
                 Submit
               </Button>
             </form>
