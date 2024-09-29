@@ -315,10 +315,11 @@ export function Portfolio() {
   const portfolios = [
     {
       type: "Social Media Management",
-      projects: [ 
+      thumbnail: "social-media-marketing.jpg",
+      projects: [
         {
           client: "Schools",
-          name: ["Pallavi", "DPS"],
+          names: ["Pallavi", "DPS"],
           tasks: [
             "Respond to comments, messages, and inquiries in a timely and professional manner.",
             "Create engaging content, including images, videos, and written posts about school events, achievements, and updates.",
@@ -334,7 +335,12 @@ export function Portfolio() {
             "Collaborate with other departments to ensure consistent messaging and branding.",
           ],
           results: [
-
+            [{ img: "image22.jpg", width: 200 },
+            { img: "image23.jpg", width: 200 },
+            { img: "image24.jpg", width: 200 },
+            { img: "image25.jpg", width: 200 },],
+            [{ img: "image27.jpg", width: 500 }],
+            [{ img: "image26.png", width: 500 }]
           ]
         },
         {
@@ -347,7 +353,7 @@ export function Portfolio() {
             "Promote new product launches, features, and updates.",
             "Track and analyze social media metrics to measure the effectiveness of strategies.",
             "Collaboration with industry influencers to expand reach.",
-                        
+
           ],
           goals: [
             "Focus on Increasing the page followers and enhance the brand visibility within the industry.",
@@ -356,13 +362,20 @@ export function Portfolio() {
             "Optimize social media strategies to drive conversions such as form submissions, downloads, and sign-ups. ",
           ],
           results: [
-
+            [{ img: "image30.jpg", width: 500 }],
+            [{ img: "image28.jpg", width: 200 },
+            { img: "image29.jpg", width: 200 },
+            { img: "image31.jpg", width: 200 },
+            { img: "image32.jpg", width: 200 },],
+            [{ img: "image33.jpg", width: 500 }],
+            [{ img: "image34.png", width: 500 }]
           ]
         }
       ]
     },
     {
       type: "Performance Marketing",
+      thumbnail: "performance-marketing.png",
       projects: [
         {
           client: "Schools",
@@ -377,7 +390,7 @@ export function Portfolio() {
             "Experiment with various call-to-action (CTA) buttons.",
             "Track conversion metrics such as lead form submissions, click through rate, and Engagement rate.",
             "Ensure cost-effective spending to maximize reach and engagement.",
-            
+
           ],
           goals: [
             "Generate leads and inquiries from prospective students and parents.",
@@ -385,10 +398,13 @@ export function Portfolio() {
             "Build a strong online presence and brand identity within the local community.",
             "Highlight key programs, special projects, and extracurricular activities to attract prospective students.",
             "Increase the number of visitors to the school’s website.",
-            
+
           ],
           results: [
-
+            [{ img: "image35.png", width: 500 },
+            { img: "image36.png", width: 500 }],
+            [{ img: "image18.png", width: 500 },
+            { img: "image37.png", width: 500 }],
           ]
         },
         {
@@ -400,7 +416,7 @@ export function Portfolio() {
             "Test different ad creatives and offers such as free trials, demos and etc. Experiment with various CTAs to determine what drives the most conversions.",
             "Monitor metrics like lead quality, conversion rates, and ROI.",
             "Ensure cost-effective spending to maximize lead generation and brand awareness.",
-                  
+
           ],
           goals: [
             "Drive high-quality leads to the website or landing pages, that are likely to convert.",
@@ -415,7 +431,38 @@ export function Portfolio() {
       ]
     },
     {
+      type: "Google My Business",
+      thumbnail: "gmb.png",
+      projects: [
+        {
+          client: "Schools",
+          names: ["DPS", "Pallavi Group"],
+          tasks: [
+            "Create and verify Google My Business listings. Ensure all business information (name, address, phone number, website, hours, etc.) is accurate and up-to-date.",
+            "Regularly update the GMB profile with posts about offers, events, and updates.",
+            "Monitor and respond to customer reviews promptly and professionally.",
+            "Optimize the GMB profile with relevant keywords to improve local search rankings.",
+            "Monitor GMB insights to track profile performance, including views, search queries, and customer actions.",
+            
+          ],
+          goals: [
+            "Increase local visibility local search results and Google Maps.",
+            "Increase customer interactions through reviews and Q&A.",
+            "Increase visits to the physical location or website from GMB listings.",
+            
+          ],
+          results: [
+            [{ img: "image8.png", width: 500 },
+              { img: "image11.png", width: 500 },
+              { img: "image9.png", width: 500 },
+              { img: "image10.png", width: 500 }],
+          ]
+        }
+      ]
+    },
+    {
       type: "Email Marketing",
+      thumbnail: "email-marketing.png",
       projects: [
         {
           client: "B2B",
@@ -423,21 +470,25 @@ export function Portfolio() {
           tasks: [
             "Plan and create email campaigns, including promotional, informational, and automated drip campaigns.",
             "Collaborate with content creators and designers to develop engaging visuals and email templates.",
-            
+
           ],
           goals: [
             "Improve open rates, CTRs, and engagement rates by creating compelling and relevant content.",
             "Promote products, services, or offers to increase sales and revenue",
-            
+
           ],
           results: [
-
+            [{ img: "image15.png", width: 500 },
+              { img: "image13.png", width: 500 },
+              { img: "image14.png", width: 500 },
+              { img: "image12.png", width: 500 }],
           ]
         }
       ]
     },
     {
       type: "Content Writing",
+      thumbnail: "content-writing.png",
       projects: [
         {
           client: "Schools And B2B",
@@ -453,16 +504,20 @@ export function Portfolio() {
             "Develop content that engages the target audience, leading to higher interaction rates, shares, comments, and social media followers.",
             "Align content with marketing campaigns and sales initiatives to support overall business objectives and drive revenue growth.",
             "Actively seek feedback from stakeholders and audiences to improve content quality and relevance.",
-          
+
           ],
           results: [
-
+            [{ img: "image16.png", width: 500 },
+              { img: "image17.png", width: 500 },
+              { img: "image1.png", width: 500 },
+              { img: "image2.jpg", width: 500 }],
           ]
         }
       ]
     },
     {
       type: "SEO",
+      thumbnail: "SEO.png",
       projects: [
         {
           client: "B2B",
@@ -472,22 +527,25 @@ export function Portfolio() {
             "Optimize webpage titles, meta descriptions, headings (H1, H2, H3), and URLs to reflect target keywords and improve relevance for search engines.",
             "Focus on improving content structure (using bullet points, subheadings, etc.) for better readability and engagement.",
             "Provide regular reports on SEO performance, including traffic growth, keyword rankings, and areas for improvement.",
-            
+
           ],
           goals: [
             "Drive more qualified, organic traffic to the website by optimizing for keywords and providing high-quality content that resonates with users.",
             "Focus on long-term SEO strategies that bring sustained organic growth and a steady increase in traffic over time.",
             "Focus on improving conversion rates from organic visitors through better content and CTAs.",
-            
+
           ],
           results: [
-
+            [{ img: "image3.png", width: 500 },
+              { img: "image4.png", width: 500 },
+              { img: "image5.png", width: 500 }],
           ]
         }
       ]
     },
     {
       type: "Reels Making",
+      thumbnail: "reels.jpg",
       projects: [
         {
           client: "Schools",
@@ -496,16 +554,17 @@ export function Portfolio() {
             "Shoot high-quality short-form videos using mobile devices or cameras, ensuring good lighting, angles, and sound quality.",
             "Edit reels to fit within the platform's time limits, typically 15-60 seconds, while maintaining a compelling narrative or visual impact.",
             "Plan and schedule reels for optimal posting times to maximize reach and engagement.",
-            
+
           ],
           goals: [
             "Create reels that generate high levels of engagement (likes, comments, shares) and help grow the brand’s social media following.",
             "Ensure reels are optimized with trending music, hashtags, and topics to increase their chances of being featured in the explore or discover sections of platforms.",
             "Regularly analyze reel performance to understand what type of content resonates most with the audience.  ",
-            
+
           ],
           results: [
-
+            [{ img: "image6.png", width: 500 },
+              { img: "image7.png", width: 500 }],
           ],
           links: [
             "https://www.instagram.com/reel/C-uo_sOSTDN/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
@@ -513,13 +572,14 @@ export function Portfolio() {
             "https://www.instagram.com/reel/C-e_mDiy09m/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
             "https://www.instagram.com/reel/C-sKbyzsrb0/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
             "https://www.instagram.com/reel/C-Ssf-9IQaz/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-            
+
           ]
         }
       ]
     },
     {
       type: "Event Management",
+      thumbnail: "event-management.jpg",
       projects: [
         {
           client: "Schools",
@@ -529,12 +589,12 @@ export function Portfolio() {
             "Provide on-site assistance, answering questions, directing guests, and ensuring smooth check-in processes.",
             "Share key moments, highlights, and success stories from the event via social media, email, and other platforms.",
             "Post event photos, highlight reels, and testimonials to maintain audience engagement after the event concludes.",
-             
+
           ],
           goals: [
             "Use the event as a platform to promote the brand, enhancing its visibility and reputation through strategic marketing and attendee engagement.",
             "Ensure the event fulfills its core purpose, whether it’s raising awareness, launching a product, or building relationships.",
-            
+
           ],
           results: [
 
@@ -548,7 +608,7 @@ export function Portfolio() {
             "https://photos.google.com/u/6/album/AF1QipP83E6PS2SlarskZbgd9Ccq_5SxmVOVsfTGiVt1",
             "https://photos.google.com/u/6/album/AF1QipOtN1c3koDfWyqlvsh_Q1zVIj6jHH05TxwV688W",
             "https://photos.google.com/u/6/album/AF1QipMWOzzFskbUSmD8pOS83JaNEnvuBh4RoDkC8a4T",
-            
+
           ]
         }
       ]
@@ -571,18 +631,21 @@ export function Portfolio() {
                 <Link href="#" className="hover:underline" prefetch={false}>
                   Home
                 </Link>
-                <Link href="#" className="hover:underline" prefetch={false}>
+                <Link href="#about" className="hover:underline" prefetch={false}>
                   About
                 </Link>
-                <Link href="#" className="hover:underline" prefetch={false}>
+                <Link href="#qualifications" className="hover:underline" prefetch={false}>
                   Qualifications
                 </Link>
-                <Link href="#" className="hover:underline" prefetch={false}>
-                  Projects
+                <Link href="#portfolio" className="hover:underline" prefetch={false}>
+                  Portfolio
                 </Link>
-                <Link href="#" className="hover:underline" prefetch={false}>
+                <Link href="#services" className="hover:underline" prefetch={false}>
+                  Services
+                </Link>
+                {/* <Link href="#" className="hover:underline" prefetch={false}>
                   Testimonials
-                </Link>
+                </Link> */}
                 <Link href="#contact" className="hover:underline" prefetch={false}>
                   Contact
                 </Link>
@@ -597,22 +660,25 @@ export function Portfolio() {
           {/* Mobile menu */}
           {menuOpen && (
             <nav className="bg-primary text-foreground p-4 rounded-lg shadow-md md:hidden">
-              <Link href="#" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
+              <Link href="#home" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
                 Home
               </Link>
-              <Link href="#" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
+              <Link href="#about" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
                 About
               </Link>
-              <Link href="#" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
+              <Link href="#qualifications" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
                 Qualifications
               </Link>
-              <Link href="#" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
-                Projects
+              <Link href="#portfolio" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
+                Portfolio
               </Link>
-              <Link href="#" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
+              <Link href="#services" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
+                Services
+              </Link>
+              {/* <Link href="#" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
                 Testimonials
-              </Link>
-              <Link href="#" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
+              </Link> */}
+              <Link href="#contact" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
                 Contact
               </Link>
             </nav>
@@ -630,8 +696,8 @@ export function Portfolio() {
               Bringing creativity and strategy together to fuel your brand’s digital success—let’s make your online presence unforgettable.
             </p>
             <div className="flex justify-center gap-4">
-              <Button className="text-muted" variant="outline">Get in Touch</Button>
-              <Button className="text-muted" variant="outline">View Portfolio</Button>
+              <a href="./PoojaYadav Resume.pdf" target="_blank" rel="noopener noreferrer"><Button className="text-muted" variant="outline">Get Resume</Button></a>
+              <Link href="#portfolio"><Button className="text-muted" variant="outline">View Portfolio</Button></Link>
             </div>
           </div>
           {/* <div class="custom-shape-divider-bottom">
@@ -654,7 +720,7 @@ export function Portfolio() {
               <p className="text-muted-foreground">Learn more about my background and expertise.</p>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
-              <div>
+              <div className="">
                 <img
                   src="/images/pooja.jpeg"
                   width={400}
@@ -686,7 +752,7 @@ export function Portfolio() {
           </div>
           <div className="max-w-3xl mx-auto space-y-8">
             <div className="text-center">
-              <h2 className="text-3xl font-bold">Qualifications & Certifications</h2>
+              <h2 className="text-3xl font-bold text-primary">Qualifications & Certifications</h2>
               <p className="text-muted-foreground">Explore my professional achievements and credentials.</p>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
@@ -711,8 +777,12 @@ export function Portfolio() {
                 <h3 className="text-2xl font-bold mb-4">Experience</h3>
                 <ul className="space-y-2">
                   <li>
+                    <h4 className="font-semibold">Senior Social Media Expert</h4>
+                    <p className="text-muted-foreground">K-INNOVATIVE HUB, 2022 - Present</p>
+                  </li>
+                  <li>
                     <h4 className="font-semibold">Content Writer</h4>
-                    <p className="text-muted-foreground">Hamstech Fashion Design Institute, 2018</p>
+                    <p className="text-muted-foreground">THE GATE ACADEMY, 2021</p>
                   </li>
                   <li>
                     <h4 className="font-semibold">Content Writer</h4>
@@ -720,11 +790,7 @@ export function Portfolio() {
                   </li>
                   <li>
                     <h4 className="font-semibold">Content Writer</h4>
-                    <p className="text-muted-foreground">THE GATE ACADEMY, 2021</p>
-                  </li>
-                  <li>
-                    <h4 className="font-semibold">Senior Social Media Expert</h4>
-                    <p className="text-muted-foreground">K-INNOVATIVE HUB, 2022 - Present</p>
+                    <p className="text-muted-foreground">Hamstech Fashion Design Institute, 2018</p>
                   </li>
                 </ul>
               </div>
@@ -736,11 +802,11 @@ export function Portfolio() {
             </svg>
           </div>
         </section>
-        <section id="projects" className="py-12 px-6 bg-background text-foreground">
-          <div className="max-w-3xl mx-auto space-y-8">
+        <section id="portfolio" className="py-12 px-6 bg-background text-foreground">
+          <div className="max-w-6xl mx-auto space-y-8">
             <div className="text-center">
               <h2 className="text-3xl font-bold">Porfolio</h2>
-              <p className="text-muted-foreground">
+              <p className="text-foreground">
                 As a full-time employee at K-Innovative, an in-house marketing agency for various esteemed clients, I manage multiple accounts simultaneously. My role covers Delhi Public School (DPS) with its 2 School branches (Nacharam, and Aerocity), Pallavi Group of Institutions, which includes 4 school branches (Boduppal Bowenpally, Keesara and Gandipet), 1 college branch (Pallavi Engineering Institute of Technology), 2 B2B clients (Pallavi Franchise, and Ecobharat.)
               </p>
             </div>
@@ -776,25 +842,32 @@ export function Portfolio() {
                 <Button>View Case Study</Button>
               </div>
             </div> */}
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid xl:grid-cols-3 gap-8 md:grid-cols-2">
               {portfolios.map((portfolio, index) => (
                 <div key={index} className="bg-muted p-6 rounded-lg shadow-md">
+                  <img
+                  src={"/images/" + portfolio.thumbnail}
+                  width={400}
+                  height={400}
+                  alt="Project 2"
+                  className="rounded-lg mb-4"
+                  style={{ aspectRatio: "400/300", objectFit: "cover" }} />
                   <h3 className="text-2xl font-bold mb-2">{portfolio.type}</h3>
                   {/* <p className="text-muted-foreground mb-4">
                     {portfolio.description?.map(s => s.title).join(', ')}
                   </p> */}
-                    {portfolio.projects.map(project => (
-                      <button
+                  {portfolio.projects.map(project => (
+                    <button
                       className="bg-primary text-white py-2 px-4 mr-4 rounded hover:bg-primary-foreground"
                       onClick={() => openPortfolioModal(project)}
                     >
                       {project.client}
                     </button>
-                    ))}
+                  ))}
                 </div>
               ))}
             </div>
-            
+
           </div>
         </section>
         <section id="services" className="py-12 px-6 bg-muted text-foreground">
@@ -805,8 +878,8 @@ export function Portfolio() {
           </div>
           <div className="max-w-4xl mx-auto space-y-8">
             <div className="text-center">
-              <h2 className="text-3xl font-bold">Our Services</h2>
-              <p className="text-muted-foreground">Explore the services we offer to boost your business.</p>
+              <h2 className="text-3xl font-bold text-primary">Services</h2>
+              <p className="text-muted-foreground">Explore the services offered to boost your business.</p>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               {services.map((service, index) => (
@@ -886,7 +959,7 @@ export function Portfolio() {
         <section id="contact" className="py-12 px-6 bg-primary text-primary-foreground">
           <div className="max-w-3xl mx-auto space-y-8">
             <div className="text-center">
-              <h2 className="text-3xl font-bold">Get in Touch</h2>
+              <h2 className="text-3xl font-bold text-foreground">Get in Touch</h2>
               <p className="text-foreground">Let's discuss how I can help elevate your social media presence.</p>
             </div>
             <form className="bg-background p-6 rounded-lg shadow-md" onSubmit={handleSubmit}>
@@ -914,7 +987,7 @@ export function Portfolio() {
             {/* <Link href="#" className="hover:text-foreground" prefetch={false}>
               <TwitterIcon className="h-6 w-6" />
             </Link> */}
-            <Link href="#" className="hover:text-foreground" prefetch={false}>
+            <Link href="https://www.linkedin.com/in/yadavpuja99/" className="hover:text-foreground" prefetch={false}>
               <LinkedinIcon className="h-6 w-6" />
             </Link>
             {/* <Link href="#" className="hover:text-foreground" prefetch={false}>
@@ -925,12 +998,19 @@ export function Portfolio() {
 
         {/* services Modal */}
         {isServiceModalOpen && currentService && (
-          <div className="fixed inset-0 flex items-center justify-center z-50 bg-primary p-8">
-            <div className="bg-muted p-8 rounded-lg shadow-lg w-full">
+          <div className="fixed inset-0 flex items-center justify-center z-50 bg-primary p-8 overflow-y-auto">
+            <div className="bg-muted p-8 rounded-lg shadow-lg w-full max-h-[90vh] overflow-y-auto">
               <h3 className="text-2xl font-bold mb-4">{currentService.title}</h3>
-              {currentService.description.map(s => (<div><h4 className="text-xl font-bold mb-2">{s.title}</h4><p className="mb-4">{s.description}</p></div>))}
+              <div className="space-y-6">
+                {currentService.description.map((s, index) => (
+                  <div key={index}>
+                    <h4 className="text-xl font-bold mb-2">{s.title}</h4>
+                    <p className="mb-4">{s.description}</p>
+                  </div>
+                ))}
+              </div>
               <button
-                className="bg-primary text-white py-2 px-4 rounded hover:bg-primary-foreground"
+                className="bg-primary text-white py-2 px-4 rounded hover:bg-primary-foreground mt-4"
                 onClick={closeServiceModal}
               >
                 Close
@@ -939,28 +1019,72 @@ export function Portfolio() {
           </div>
         )}
 
+
         {/* PortfolioModal */}
         {isPortfolioModalOpen && currentPortfolio && (
-          <div className="fixed inset-0 flex items-center justify-center z-50 bg-primary p-8">
-            <div className="bg-muted p-8 rounded-lg shadow-lg w-full">
-              <h3 className="text-2xl font-bold mb-4">{currentPortfolio.client}: {currentPortfolio.names}</h3>
+          <div className="fixed inset-0 flex items-center justify-center z-50 bg-primary p-8 overflow-y-auto">
+            <div className="bg-muted p-8 rounded-lg shadow-lg w-full max-h-[90vh] overflow-y-auto">
+              <h3 className="text-2xl font-bold mb-4">{currentPortfolio.client}: {currentPortfolio.names.join(', ')}</h3>
               {/* {currentPortfolio.description.map(s => (<div><h4 className="text-xl font-bold mb-2">{s.tasks.join('\n')}</h4><p className="mb-4">{s.goals.join('\n')}</p></div>))} */}
-              <h4 className="text-xl font-bold">Tasks</h4>
-              <ul className="mx-8">
-                {currentPortfolio.tasks.map(x => <li>{x}</li>)}
-              </ul>
-              <h4 className="text-xl font-bold">Goals</h4>
-              <ul className="mx-8">
-                {currentPortfolio.goals.map(x => <li>{x}</li>)}
-              </ul>
+              <div className="mb-4">
+                <h4 className="text-xl font-bold">Tasks</h4>
+                <ul className="mx-8">
+                  {currentPortfolio.tasks.map(x => <li>{x}</li>)}
+                </ul>
+              </div>
+              <div className="mb-4">
+                <h4 className="text-xl font-bold">Goals</h4>
+                <ul className="mx-8">
+                  {currentPortfolio.goals.map(x => <li>{x}</li>)}
+                </ul>
+              </div>
               {currentPortfolio.links &&
-              (
-              <><h4 className="text-xl font-bold">Links</h4>
-              <ul className="mx-8">
-                {currentPortfolio.links.map(x => <a href={x} key={x}><li>{x}</li></a>)}
-              </ul>
-              </>)
+                (
+                  <div className="mb-4">
+                    <h4 className="text-xl font-bold">Links</h4>
+                    <ul className="mx-8">
+                      {currentPortfolio.links.map((link, index) => (
+                        <li key={index} className="text-underline">
+                          <a href={link} target="_blank" rel="noopener noreferrer" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                            {link}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>)
               }
+              <div className="mb-4">
+                <h4 className="text-xl font-bold">Results</h4>
+                <div>
+                  {currentPortfolio.results.map(imgs => (
+                    <div className="flex flex-wrap gap-2 my-4">
+                      {imgs.map((r, index) => (
+                        <div key={index} className="flex-shrink-0 mx-2">
+                          <img
+                            src={"/images/" + r.img}
+                            width={r.width}
+                            alt="Pooja Yadav"
+                            className="rounded-lg"
+                            style={{ objectFit: "cover" }}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* {currentPortfolio.results.map(r => (
+                <div>
+                  <img
+                    src={"/images/" + r} 
+                    width={400}
+                    height={400}
+                    alt="Pooja Yadav"
+                    className="rounded-lg"
+                    style={{ aspectRatio: "400/400", objectFit: "cover" }} />
+                </div>
+              ))} */}
               <button
                 className="bg-primary text-white py-2 px-4 rounded hover:bg-primary-foreground"
                 onClick={closePortfolioModal}
