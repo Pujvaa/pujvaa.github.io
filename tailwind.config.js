@@ -8,68 +8,68 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "#0081a7", // Dark blue
+        foreground: "#ffffff", // White for contrast
       },
     },
-      colors: {
-            "border": "hsl(var(--border))",
-            "input": "hsl(var(--input))",
-            "ring": "hsl(var(--ring))",
-            "background": "hsl(var(--background))",
-            "foreground": "hsl(var(--foreground))",
-            "primary": {
-              "DEFAULT": "hsl(var(--primary))",
-              "foreground": "hsl(var(--primary-foreground))"
-            },
-            "secondary": {
-              "DEFAULT": "hsl(var(--secondary))",
-              "foreground": "hsl(var(--secondary-foreground))"
-            },
-            "destructive": {
-              "DEFAULT": "hsl(var(--destructive))",
-              "foreground": "hsl(var(--destructive-foreground))"
-            },
-            "muted": {
-              "DEFAULT": "hsl(var(--muted))",
-              "foreground": "hsl(var(--muted-foreground))"
-            },
-            "accent": {
-              "DEFAULT": "hsl(var(--accent))",
-              "foreground": "hsl(var(--accent-foreground))"
-            },
-            "popover": {
-              "DEFAULT": "hsl(var(--popover))",
-              "foreground": "hsl(var(--popover-foreground))"
-            },
-            "card": {
-              "DEFAULT": "hsl(var(--card))",
-              "foreground": "hsl(var(--card-foreground))"
-            }
-          },
-      borderRadius: {
-            "lg": "var(--radius)",
-            "md": "calc(var(--radius) - 2px)",
-            "sm": "calc(var(--radius) - 4px)"
-          },
-      keyframes: {
-            "accordion-down": {
-              "from": {
-                "height": "0"
-              },
-              "to": {
-                "height": "var(--radix-accordion-content-height)"
-              }
-            },
-            "accordion-up": {
-              "from": {
-                "height": "var(--radix-accordion-content-height)"
-              },
-              "to": {
-                "height": "0"
-              }
-            }
-          }
-},
+    colors: {
+      border: "#0081a7", // Dark blue border
+      input: "#e5f2f4",  // Light input background
+      ring: "#00afb9",   // Lighter teal
+      background: "#0081a7", // Dark blue for background
+      foreground: "#ffffff", // White foreground for readability
+      primary: {
+        DEFAULT: "#0081a7", // Dark blue for primary
+        foreground: "#00afb9", // White for primary foreground
+      },
+      secondary: {
+        DEFAULT: "#00afb9", // Teal for secondary
+        foreground: "#ffffff", // White for secondary foreground
+      },
+      destructive: {
+        DEFAULT: "#e63946", // Red for destructive action
+        foreground: "#ffffff", // White for destructive foreground
+      },
+      muted: {
+        DEFAULT: "#b2e0e6", // Light muted color (light teal)
+        foreground: "#003e4c", // Dark teal for muted foreground
+      },
+      accent: {
+        DEFAULT: "#00afb9", // Teal for accent
+        foreground: "#ffffff", // White for accent foreground
+      },
+      popover: {
+        DEFAULT: "#00afb9", // Teal for popover
+        foreground: "#ffffff", // White for popover foreground
+      },
+      card: {
+        DEFAULT: "#0081a7", // Dark blue for card
+        foreground: "#ffffff", // White for card foreground
+      },
+    },
+    borderRadius: {
+      lg: "var(--radius)",
+      md: "calc(var(--radius) - 2px)",
+      sm: "calc(var(--radius) - 4px)",
+    },
+    keyframes: {
+      "accordion-down": {
+        from: {
+          height: "0",
+        },
+        to: {
+          height: "var(--radix-accordion-content-height)",
+        },
+      },
+      "accordion-up": {
+        from: {
+          height: "var(--radix-accordion-content-height)",
+        },
+        to: {
+          height: "0",
+        },
+      },
+    },
+  },
   plugins: [require("tailwindcss-animate")],
 };

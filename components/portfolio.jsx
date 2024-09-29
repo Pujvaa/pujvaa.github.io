@@ -33,6 +33,10 @@ import { Textarea } from "@/components/ui/textarea"
 
 export function Portfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isServiceModalOpen, setIsServiceModalOpen] = useState(false);
+  const [isPortfolioModalOpen, setIsPortfolioModalOpen] = useState(false);
+  const [currentService, setCurrentService] = useState(null);
+  const [currentPortfolio, setCurrentPortfolio] = useState(null);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -62,10 +66,499 @@ export function Portfolio() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const openServiceModal = (service) => {
+    setCurrentService(service);
+    setIsServiceModalOpen(true);
+  };
+
+  // Close modal
+  const closeServiceModal = () => {
+    setIsServiceModalOpen(false);
+    setCurrentService(null);
+  };
+
+  const openPortfolioModal = (Portfolio) => {
+    setCurrentPortfolio(Portfolio);
+    setIsPortfolioModalOpen(true);
+  };
+
+  // Close modal
+  const closePortfolioModal = () => {
+    setIsPortfolioModalOpen(false);
+    setCurrentPortfolio(null);
+  };
+
+  const services = [
+    {
+      title: "Social Media Marketing",
+      description: [
+        {
+          title: "Social Media Audit",
+          description: "I’ll review your current social media presence in detail, identifying strengths and areas for improvement to help shape a more effective strategy tailored to your needs."
+        },
+        {
+          title: "Social Media Strategy",
+          description: "Together, we’ll develop a personalized plan with clear goals, a defined target audience, and strategic content themes and tactics designed to enhance engagement and achieve your business objectives."
+        },
+        {
+          title: "Account Setup",
+          description: "I’ll set up and optimize your social media profiles on key platforms, ensuring consistent branding, strategic keyword integration, and seamless inclusion of your business information."
+        },
+        {
+          title: "Content Creation and Distribution",
+          description: "I’ll create and distribute engaging, high-quality content that’s tailored to your audience, maximizing your reach and interaction across social media channels."
+        },
+        {
+          title: "Community Engagement",
+          description: "To build a strong, positive brand reputation, I’ll actively engage with your followers, spark conversations, respond to inquiries, and address any concerns within your online community."
+        },
+        {
+          title: "Analytics and Reporting",
+          description: "I’ll use advanced analytics to track performance metrics, understand audience behavior, and provide actionable insights, helping to refine and improve your social media campaigns for better results."
+        },
+      ]
+    },
+    {
+      title: "Performance Marketing",
+      description: [
+        {
+          title: "Building Performance Marketing Strategy",
+          description: "Together, we’ll create a customized strategy that aligns with your business goals, targets your audience effectively, and leverages industry trends to boost your online visibility and achieve measurable results."
+        },
+        {
+          title: "Digital Marketing Campaign Management",
+          description: "I’ll handle the execution and management of your digital marketing campaigns across various channels, ensuring your messaging stays consistent, your targeting is spot-on, and your campaign performance is closely monitored."
+
+        },
+        {
+          title: "Optimizing Media Spend & CAC",
+          description: "I’ll keep a close eye on your media spending, optimizing it to ensure your budget is used efficiently, acquisition costs are reduced, and you get the highest return on investment for your campaigns."
+
+        },
+        {
+          title: "Campaign Strategy and Planning",
+          description: "Let’s develop effective campaign strategies and tactical plans together, covering everything from content creation and ad targeting to campaign timelines, ensuring we drive success and meet your objectives."
+
+        },
+        {
+          title: "Data Analytics and Reporting",
+          description: "I’ll use advanced analytics tools to gather and analyze data, providing you with clear insights into your campaign performance, audience behavior, and conversion metrics, helping us refine and improve your strategies."
+
+        },
+      ]
+    },
+    {
+      title: "Google My Business",
+      description: [
+        {
+          title: "Claim or Create Your Profile",
+          description: "I’ll help you claim or set up your Google My Business profile, ensuring it’s ready to represent your business online."
+        },
+        {
+          title: "100% Optimized GMB Page",
+          description: "I’ll make sure your Google My Business page is fully optimized to enhance visibility and attract more customers."
+        },
+        {
+          title: "Image and Alt Text Optimization",
+          description: "I’ll optimize your images and alt text to improve search visibility and provide a better user experience."
+        },
+        {
+          title: "Verified Business on Google",
+          description: "I’ll assist with verifying your business on Google to build trust and credibility with potential customers."
+        },
+        {
+          title: "GMB Review Funnel",
+          description: "I’ll set up a review funnel to encourage and manage customer reviews, boosting your online reputation."
+        },
+        {
+          title: "Google Posts",
+          description: "I’ll create and manage Google Posts to keep your audience engaged and informed with the latest updates and offers."
+        },
+        {
+          title: "Regular Monitoring and Analysis",
+          description: "I’ll regularly monitor and analyze your Google My Business performance to ensure it’s working effectively and make adjustments as needed."
+        },
+
+      ]
+    },
+    {
+      title: "Email Marketing",
+      description: [
+        {
+          title: "List Building",
+          description: "I’ll help you grow your email list by using effective strategies like lead magnets and sign-up forms, keeping your subscriber base continually expanding."
+        },
+        {
+          title: "Segmentation",
+          description: "I’ll segment your email list based on demographics, behaviors, and preferences to make sure each message reaches the right audience."
+        },
+        {
+          title: "Template Design",
+          description: "I’ll design visually appealing and responsive email templates that align perfectly with your brand identity, ensuring your emails stand out."
+        },
+        {
+          title: "Content Creation",
+          description: "I’ll craft engaging and relevant content for different audience segments to keep your subscribers informed and interested."
+        },
+        {
+          title: "Personalization",
+          description: "Using data-driven insights, I’ll personalize your emails to enhance their relevance and drive higher engagement from your audience."
+        },
+        {
+          title: "Campaign Setup",
+          description: "I’ll set up and schedule your email campaigns according to a strategic content calendar on your preferred platform, ensuring timely and effective communication."
+        },
+        {
+          title: "Performance Tracking",
+          description: "I’ll monitor key metrics such as open rates, click-through rates, and conversions to ensure your campaigns are performing at their best."
+        },
+        {
+          title: "Analysis and Reporting",
+          description: "I’ll provide you with regular performance reports, offering actionable insights and recommendations for ongoing improvements to enhance your email marketing results."
+        },
+
+      ]
+    },
+    {
+      title: "Content writing",
+      description: [
+        {
+          title: "Content Strategy Development",
+          description: "Let’s craft a tailored strategy together that defines your goals, target audience, content themes, and distribution channels, ensuring your content marketing campaigns truly make an impact."
+        },
+        {
+          title: "Content Creation and Optimization",
+          description: "I’ll create high-quality, optimized content across formats like articles, blog posts, videos, and infographics, all designed to engage and resonate with your audience."
+        },
+        {
+          title: "Types of Content",
+          description: "From ad campaigns and product descriptions to flyers, mission and vision statements, captions, and bios—I’ll develop content that aligns perfectly with your brand and effectively connects with your audience."
+        },
+
+      ]
+    },
+    {
+      title: "SEO",
+      description: [
+        {
+          title: "Keyword Research",
+          description: "Let’s dive into detailed research to uncover the keywords and search phrases that align with your target audience’s needs, so we can optimize your website's content for better organic search rankings."
+        },
+        {
+          title: "On-Page Optimization",
+          description: "I’ll refine your webpage elements—titles, headings, meta tags, and content structure—to boost keyword relevance, enhance user experience, and improve how search engines like Google crawl your site."
+        },
+        {
+          title: "Content Optimization",
+          description: "We’ll elevate the quality and relevance of your website’s content, ensuring it aligns with what users are searching for, engages your audience, and achieves strong rankings in search results for sustained organic growth."
+        },
+
+      ]
+    },
+    {
+      title: "Reels Making",
+      description: [
+        {
+          title: "Filming",
+          description: "I’ll handle the filming process, capturing high-quality footage based on your script and storyboard to bring your vision to life."
+        },
+        {
+          title: "Editing",
+          description: "I’ll edit the footage to craft engaging and polished reels, incorporating effects, music, and transitions to make your content stand out."
+        },
+        {
+          title: "Platform Optimization",
+          description: "I’ll optimize your reels for each social media platform (Instagram, Facebook, etc.) to ensure they reach and engage your target audience effectively."
+        },
+        {
+          title: "Publishing Schedule",
+          description: "I’ll schedule and publish your reels according to a well-planned content calendar to maintain consistent and timely content delivery."
+        },
+        {
+          title: "Promotion",
+          description: "I’ll develop a promotion strategy to boost your reel’s visibility, using hashtags, partnerships, and paid promotions to maximize its impact."
+        },
+
+      ]
+    },
+    {
+      title: "Event Management",
+      description: [
+        {
+          title: "Event Concept",
+          description: "I’ll develop a unique event concept that perfectly aligns with your goals and brand identity, ensuring a memorable experience for your attendees."
+        },
+        {
+          title: "Marketing Strategy",
+          description: "Together, we’ll create a comprehensive marketing plan to promote your event through social media, email campaigns, and PR, driving awareness and engagement."
+        },
+        {
+          title: "Collateral Creation",
+          description: "I’ll design and produce all necessary promotional materials, including invitations, flyers, and banners, to effectively market your event."
+        },
+        {
+          title: "On-Site Management",
+          description: "I’ll handle the event setup, coordinate with vendors, and manage the event timeline to ensure everything runs smoothly on the day."
+        },
+        {
+          title: "Attendee Engagement",
+          description: "I’ll manage all aspects of attendee experience, including registration, seating arrangements, and on-site support, to provide a seamless and enjoyable experience."
+        },
+        {
+          title: "Post-Event Marketing",
+          description: "After the event, I’ll share highlights and key moments through social media and other channels to keep the excitement alive and maintain engagement."
+        },
+      ]
+    },
+  ];
+
+  const portfolios = [
+    {
+      type: "Social Media Management",
+      projects: [ 
+        {
+          client: "Schools",
+          name: ["Pallavi", "DPS"],
+          tasks: [
+            "Respond to comments, messages, and inquiries in a timely and professional manner.",
+            "Create engaging content, including images, videos, and written posts about school events, achievements, and updates.",
+            "Promote upcoming events, special programs, and noteworthy achievements of students and staff.",
+            "Use analytics tools to understand audience behavior and adjust strategies accordingly.",
+            "Collaborate with other departments to ensure consistent messaging and branding.",
+          ],
+          goals: [
+            "Create engaging content, including images, videos, and written posts about school events, achievements, and updates.",
+            "Respond to comments, messages, and inquiries in a timely and professional manner.",
+            "Promote upcoming events, special programs, and noteworthy achievements of students and staff.",
+            "Use analytics tools to understand audience behavior and adjust strategies accordingly.",
+            "Collaborate with other departments to ensure consistent messaging and branding.",
+          ],
+          results: [
+
+          ]
+        },
+        {
+          client: "B2B",
+          names: ["Eco-Bharat"],
+          tasks: [
+            "Develop a content calendar to plan and schedule posts.",
+            "Create engaging and informative content which should be relevant, accurate, and aligns with the brand.",
+            "Respond to comments, messages, and inquiries in a timely and professional manner.",
+            "Promote new product launches, features, and updates.",
+            "Track and analyze social media metrics to measure the effectiveness of strategies.",
+            "Collaboration with industry influencers to expand reach.",
+                        
+          ],
+          goals: [
+            "Focus on Increasing the page followers and enhance the brand visibility within the industry.",
+            "Drive high-quality traffic to the client’s website or landing pages.",
+            "Increase engagement rates on posts, and reels through likes, comments, shares.",
+            "Optimize social media strategies to drive conversions such as form submissions, downloads, and sign-ups. ",
+          ],
+          results: [
+
+          ]
+        }
+      ]
+    },
+    {
+      type: "Performance Marketing",
+      projects: [
+        {
+          client: "Schools",
+          names: ["DPS Aerocity"],
+          tasks: [
+            "Identify parents and guardians of school-age children within a specific geographic area.",
+            "Plan campaigns around key events such as admissions season, alumni reunions, and etc.",
+            "Develop campaigns promoting school events, programs, and achievements.",
+            "Create awareness campaigns showcasing the school's unique features and values.",
+            "Set up lead generation and awareness campaigns on Meta Ads Manager.",
+            "Test different ad creatives and messages to see what resonates with parents.",
+            "Experiment with various call-to-action (CTA) buttons.",
+            "Track conversion metrics such as lead form submissions, click through rate, and Engagement rate.",
+            "Ensure cost-effective spending to maximize reach and engagement.",
+            
+          ],
+          goals: [
+            "Generate leads and inquiries from prospective students and parents.",
+            "Drive traffic to the school’s website or specific landing pages focused on admissions.",
+            "Build a strong online presence and brand identity within the local community.",
+            "Highlight key programs, special projects, and extracurricular activities to attract prospective students.",
+            "Increase the number of visitors to the school’s website.",
+            
+          ],
+          results: [
+
+          ]
+        },
+        {
+          client: "B2B",
+          names: ["Eco-Bharat"],
+          tasks: [
+            "Identify business decision-makers, industry professionals, and potential partners.",
+            "Design professional visuals featuring product demos, industry stats, and client testimonials.",
+            "Test different ad creatives and offers such as free trials, demos and etc. Experiment with various CTAs to determine what drives the most conversions.",
+            "Monitor metrics like lead quality, conversion rates, and ROI.",
+            "Ensure cost-effective spending to maximize lead generation and brand awareness.",
+                  
+          ],
+          goals: [
+            "Drive high-quality leads to the website or landing pages, that are likely to convert.",
+            "Increase brand awareness and authority in that particular industry ",
+            "Use case studies, product demos, and feature highlights to attract potential customers.",
+            "Increase sales and conversion rates.",
+          ],
+          results: [
+
+          ]
+        }
+      ]
+    },
+    {
+      type: "Email Marketing",
+      projects: [
+        {
+          client: "B2B",
+          names: ["Eco-Bharat"],
+          tasks: [
+            "Plan and create email campaigns, including promotional, informational, and automated drip campaigns.",
+            "Collaborate with content creators and designers to develop engaging visuals and email templates.",
+            
+          ],
+          goals: [
+            "Improve open rates, CTRs, and engagement rates by creating compelling and relevant content.",
+            "Promote products, services, or offers to increase sales and revenue",
+            
+          ],
+          results: [
+
+          ]
+        }
+      ]
+    },
+    {
+      type: "Content Writing",
+      projects: [
+        {
+          client: "Schools And B2B",
+          names: ["Eco-Bharat", "Pallavi International School, Gandipet"],
+          tasks: [
+            "Collaborate with stakeholders to define content goals, target audience, content themes, and distribution channels.",
+            "Research and analyze industry trends, competitors, and audience insights to develop a tailored content strategy.",
+            "Create content calendars to plan and schedule content across different platforms.",
+            "Write high-quality, engaging, and optimized content across various formats such as videos, infographics, product descriptions, and social media posts.",
+            "Develop diverse types of content including ad campaigns, mission and vision statements, captions, bios, and flyers.",
+          ],
+          goals: [
+            "Develop content that engages the target audience, leading to higher interaction rates, shares, comments, and social media followers.",
+            "Align content with marketing campaigns and sales initiatives to support overall business objectives and drive revenue growth.",
+            "Actively seek feedback from stakeholders and audiences to improve content quality and relevance.",
+          
+          ],
+          results: [
+
+          ]
+        }
+      ]
+    },
+    {
+      type: "SEO",
+      projects: [
+        {
+          client: "B2B",
+          names: ["Eco-Bharat"],
+          tasks: [
+            "Research keywords based on their relevance, search volume, and the likelihood of ranking on search engine result pages (SERPs).",
+            "Optimize webpage titles, meta descriptions, headings (H1, H2, H3), and URLs to reflect target keywords and improve relevance for search engines.",
+            "Focus on improving content structure (using bullet points, subheadings, etc.) for better readability and engagement.",
+            "Provide regular reports on SEO performance, including traffic growth, keyword rankings, and areas for improvement.",
+            
+          ],
+          goals: [
+            "Drive more qualified, organic traffic to the website by optimizing for keywords and providing high-quality content that resonates with users.",
+            "Focus on long-term SEO strategies that bring sustained organic growth and a steady increase in traffic over time.",
+            "Focus on improving conversion rates from organic visitors through better content and CTAs.",
+            
+          ],
+          results: [
+
+          ]
+        }
+      ]
+    },
+    {
+      type: "Reels Making",
+      projects: [
+        {
+          client: "Schools",
+          names: ["DPS"],
+          tasks: [
+            "Shoot high-quality short-form videos using mobile devices or cameras, ensuring good lighting, angles, and sound quality.",
+            "Edit reels to fit within the platform's time limits, typically 15-60 seconds, while maintaining a compelling narrative or visual impact.",
+            "Plan and schedule reels for optimal posting times to maximize reach and engagement.",
+            
+          ],
+          goals: [
+            "Create reels that generate high levels of engagement (likes, comments, shares) and help grow the brand’s social media following.",
+            "Ensure reels are optimized with trending music, hashtags, and topics to increase their chances of being featured in the explore or discover sections of platforms.",
+            "Regularly analyze reel performance to understand what type of content resonates most with the audience.  ",
+            
+          ],
+          results: [
+
+          ],
+          links: [
+            "https://www.instagram.com/reel/C-uo_sOSTDN/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "https://www.instagram.com/reel/C-r4UBBOXua/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "https://www.instagram.com/reel/C-e_mDiy09m/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "https://www.instagram.com/reel/C-sKbyzsrb0/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "https://www.instagram.com/reel/C-Ssf-9IQaz/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            
+          ]
+        }
+      ]
+    },
+    {
+      type: "Event Management",
+      projects: [
+        {
+          client: "Schools",
+          names: ["DPS"],
+          tasks: [
+            "Work closely with clients or stakeholders to determine the purpose and goals of the event.",
+            "Provide on-site assistance, answering questions, directing guests, and ensuring smooth check-in processes.",
+            "Share key moments, highlights, and success stories from the event via social media, email, and other platforms.",
+            "Post event photos, highlight reels, and testimonials to maintain audience engagement after the event concludes.",
+             
+          ],
+          goals: [
+            "Use the event as a platform to promote the brand, enhancing its visibility and reputation through strategic marketing and attendee engagement.",
+            "Ensure the event fulfills its core purpose, whether it’s raising awareness, launching a product, or building relationships.",
+            
+          ],
+          results: [
+
+          ],
+          links: [
+            "https://photos.google.com/u/6/album/AF1QipMmTZ6f0zMUjMfm6esZ7hSX6l1onqBudgxSLLi6",
+            "https://photos.google.com/u/6/album/AF1QipN-7dyRfMPLtnRGS2NUNhXE8L_tjvTyvsgP6PCd",
+            "https://photos.google.com/u/6/album/AF1QipO0T3VTlS0sNsajyXKANVvtMkv9vMiKM62YWoOC",
+            "https://photos.google.com/u/6/album/AF1QipMmqugEvrwYXRv5NFICgkxhuAF4yc5RGHCVS6ug",
+            "https://photos.google.com/u/6/album/AF1QipMBVUiCBFx5gjGj2MIJ3e_vD4gzbyU9TCbbTHo8",
+            "https://photos.google.com/u/6/album/AF1QipP83E6PS2SlarskZbgd9Ccq_5SxmVOVsfTGiVt1",
+            "https://photos.google.com/u/6/album/AF1QipOtN1c3koDfWyqlvsh_Q1zVIj6jHH05TxwV688W",
+            "https://photos.google.com/u/6/album/AF1QipMWOzzFskbUSmD8pOS83JaNEnvuBh4RoDkC8a4T",
+            
+          ]
+        }
+      ]
+    }
+  ]
+
   return (
     (<div className="flex flex-col min-h-[100dvh]">
       <header
-        className="bg-primary text-primary-foreground py-4 px-6 flex justify-between items-center">
+        className="bg-primary text-foreground py-4 px-6 flex justify-between items-center">
         <div className="flex-1 flex-col">
           <div className="flex flex-1 flex-row justify-between">
             <div>
@@ -95,54 +588,65 @@ export function Portfolio() {
                 </Link>
               </nav>
             </div>
-          {/* Mobile menu button */}
-          <Button variant="outline" className="md:hidden" onClick={toggleMenu}>
-            <MenuIcon className="h-6 w-6" />
-          </Button>
+            {/* Mobile menu button */}
+            <Button variant="outline" className="md:hidden" onClick={toggleMenu}>
+              <MenuIcon className="h-6 w-6" />
+            </Button>
           </div>
 
-        {/* Mobile menu */}
-        {menuOpen && (
-          <nav className="bg-primary text-primary-foreground p-4 rounded-lg shadow-md md:hidden">
-            <Link href="#" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
-              Home
-            </Link>
-            <Link href="#" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
-              About
-            </Link>
-            <Link href="#" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
-              Qualifications
-            </Link>
-            <Link href="#" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
-              Projects
-            </Link>
-            <Link href="#" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
-              Testimonials
-            </Link>
-            <Link href="#" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
-              Contact
-            </Link>
-          </nav>
-        )}
+          {/* Mobile menu */}
+          {menuOpen && (
+            <nav className="bg-primary text-foreground p-4 rounded-lg shadow-md md:hidden">
+              <Link href="#" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
+                Home
+              </Link>
+              <Link href="#" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
+                About
+              </Link>
+              <Link href="#" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
+                Qualifications
+              </Link>
+              <Link href="#" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
+                Projects
+              </Link>
+              <Link href="#" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
+                Testimonials
+              </Link>
+              <Link href="#" className="block py-2 hover:underline" onClick={toggleMenu} prefetch={false}>
+                Contact
+              </Link>
+            </nav>
+          )}
         </div>
 
       </header>
       <main className="flex-1">
         <section
           id="hero"
-          className="bg-[url('/images/hero.jpg')] bg-cover bg-center py-24 px-6 text-center text-primary-foreground">
+          className="bg-muted bg-cover bg-center pt-24 pb-12 px-6 text-center text-primary">
           <div className="max-w-3xl mx-auto space-y-6">
             <h1 className="text-4xl font-bold">Elevate Your Social Media Presence</h1>
             <p className="text-lg">
-              As a seasoned social media marketer, I help businesses of all sizes create engaging content, build a loyal
-              following, and drive measurable results.
+              Bringing creativity and strategy together to fuel your brand’s digital success—let’s make your online presence unforgettable.
             </p>
             <div className="flex justify-center gap-4">
-              <Button>Get in Touch</Button>
-              <Button variant="outline">View Portfolio</Button>
+              <Button className="text-muted" variant="outline">Get in Touch</Button>
+              <Button className="text-muted" variant="outline">View Portfolio</Button>
             </div>
           </div>
+          {/* <div class="custom-shape-divider-bottom">
+              <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                  <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+              </svg>
+          </div> */}
         </section>
+        <div class="custom-shape-divider-top-1727608663">
+          <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+          </svg>
+        </div>
         <section id="about" className="py-12 px-6 bg-background text-foreground">
           <div className="max-w-3xl mx-auto space-y-8">
             <div className="text-center">
@@ -161,23 +665,25 @@ export function Portfolio() {
               </div>
               <div className="space-y-4">
                 <p>
-                  Hi, I'm Pooja Yadav, a passionate social media marketer with over 5 years of experience helping
-                  businesses of all sizes grow their online presence and reach their target audience.
+                  Hi, I’m Pooja, a Digital Marketer and Social Media Specialist from Hyderabad, India. My journey started on stage, where I loved being in the spotlight and making an impact and I soon discovered that marketing is my true calling.
                 </p>
                 <p>
-                  I specialize in creating engaging content, building a loyal following, and driving measurable results
-                  through strategic social media campaigns. My expertise spans across various platforms, including
-                  Facebook, Instagram, Twitter, and LinkedIn.
+                  I’ve worked with fashion industry and ed-tech companies, learning and growing with each project. Now, I’m dedicated to helping small and medium-sized businesses turn their marketing challenges into success stories.
                 </p>
                 <p>
-                  I'm dedicated to staying up-to-date with the latest social media trends and best practices, ensuring
-                  that my clients always have a competitive edge in the digital landscape.
+                  I’m excited to be part of your journey and help you achieve your goals. Ready to create magic together? Then let’s make it happen already!
                 </p>
               </div>
             </div>
           </div>
         </section>
+
         <section id="qualifications" className="py-12 px-6 bg-muted text-foreground">
+          <div class="custom-shape-divider-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+              <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+          </div>
           <div className="max-w-3xl mx-auto space-y-8">
             <div className="text-center">
               <h2 className="text-3xl font-bold">Qualifications & Certifications</h2>
@@ -188,16 +694,16 @@ export function Portfolio() {
                 <h3 className="text-2xl font-bold mb-4">Education</h3>
                 <ul className="space-y-2">
                   <li>
-                    <h4 className="font-semibold">Bachelor of Marketing</h4>
-                    <p className="text-muted-foreground">University of XYZ, 2017</p>
+                    <h4 className="font-semibold">Masters of Arts - Hindi</h4>
+                    <p className="text-muted-foreground">Dakshin Bharat Hindi Prachar Sabha, 2020</p>
                   </li>
                   <li>
-                    <h4 className="font-semibold">Social Media Marketing Certification</h4>
-                    <p className="text-muted-foreground">Coursera, 2020</p>
+                    <h4 className="font-semibold">Post Graduate Diploma in Translation</h4>
+                    <p className="text-muted-foreground">Dakshin Bharat Hindi Prachar Sabha, 2020</p>
                   </li>
                   <li>
-                    <h4 className="font-semibold">Google Analytics Certification</h4>
-                    <p className="text-muted-foreground">Google, 2021</p>
+                    <h4 className="font-semibold">B.COM Computers</h4>
+                    <p className="text-muted-foreground">Osmania University , 2017</p>
                   </li>
                 </ul>
               </div>
@@ -205,29 +711,40 @@ export function Portfolio() {
                 <h3 className="text-2xl font-bold mb-4">Experience</h3>
                 <ul className="space-y-2">
                   <li>
-                    <h4 className="font-semibold">Social Media Marketer</h4>
-                    <p className="text-muted-foreground">ABC Agency, 2018 - 2021</p>
+                    <h4 className="font-semibold">Content Writer</h4>
+                    <p className="text-muted-foreground">Hamstech Fashion Design Institute, 2018</p>
                   </li>
                   <li>
-                    <h4 className="font-semibold">Digital Marketing Specialist</h4>
-                    <p className="text-muted-foreground">XYZ Company, 2021 - Present</p>
+                    <h4 className="font-semibold">Content Writer</h4>
+                    <p className="text-muted-foreground">Oliveboard, 2019</p>
                   </li>
                   <li>
-                    <h4 className="font-semibold">Freelance Social Media Consultant</h4>
-                    <p className="text-muted-foreground">2017 - Present</p>
+                    <h4 className="font-semibold">Content Writer</h4>
+                    <p className="text-muted-foreground">THE GATE ACADEMY, 2021</p>
+                  </li>
+                  <li>
+                    <h4 className="font-semibold">Senior Social Media Expert</h4>
+                    <p className="text-muted-foreground">K-INNOVATIVE HUB, 2022 - Present</p>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
+          <div class="custom-shape-divider-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+              <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+          </div>
         </section>
         <section id="projects" className="py-12 px-6 bg-background text-foreground">
           <div className="max-w-3xl mx-auto space-y-8">
             <div className="text-center">
-              <h2 className="text-3xl font-bold">My Projects</h2>
-              <p className="text-muted-foreground">Explore a selection of my recent social media marketing projects.</p>
+              <h2 className="text-3xl font-bold">Porfolio</h2>
+              <p className="text-muted-foreground">
+                As a full-time employee at K-Innovative, an in-house marketing agency for various esteemed clients, I manage multiple accounts simultaneously. My role covers Delhi Public School (DPS) with its 2 School branches (Nacharam, and Aerocity), Pallavi Group of Institutions, which includes 4 school branches (Boduppal Bowenpally, Keesara and Gandipet), 1 college branch (Pallavi Engineering Institute of Technology), 2 B2B clients (Pallavi Franchise, and Ecobharat.)
+              </p>
             </div>
-            <div className="grid md:grid-cols-2 gap-8">
+            {/* <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-muted p-6 rounded-lg shadow-md">
                 <img
                   src="/images/project1.jpg"
@@ -258,21 +775,79 @@ export function Portfolio() {
                 </p>
                 <Button>View Case Study</Button>
               </div>
+            </div> */}
+            <div className="grid md:grid-cols-2 gap-8">
+              {portfolios.map((portfolio, index) => (
+                <div key={index} className="bg-muted p-6 rounded-lg shadow-md">
+                  <h3 className="text-2xl font-bold mb-2">{portfolio.type}</h3>
+                  {/* <p className="text-muted-foreground mb-4">
+                    {portfolio.description?.map(s => s.title).join(', ')}
+                  </p> */}
+                    {portfolio.projects.map(project => (
+                      <button
+                      className="bg-primary text-white py-2 px-4 mr-4 rounded hover:bg-primary-foreground"
+                      onClick={() => openPortfolioModal(project)}
+                    >
+                      {project.client}
+                    </button>
+                    ))}
+                </div>
+              ))}
             </div>
+            
           </div>
         </section>
-        <section id="testimonials" className="py-12 px-6 bg-muted text-foreground">
+        <section id="services" className="py-12 px-6 bg-muted text-foreground">
+          <div class="custom-shape-divider-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+              <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+          </div>
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold">Our Services</h2>
+              <p className="text-muted-foreground">Explore the services we offer to boost your business.</p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              {services.map((service, index) => (
+                <div key={index} className="bg-background p-6 rounded-lg shadow-md">
+                  <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
+                  <p className="text-muted-foreground mb-4">
+                    {service.description?.map(s => s.title).join(', ')}
+                  </p>
+                  <button
+                    className="bg-muted text-white py-2 px-4 rounded hover:bg-primary-foreground"
+                    onClick={() => openServiceModal(service)}
+                  >
+                    View Details
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="custom-shape-divider-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+              <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+          </div>
+        </section>
+        {/* <section id="testimonials" className="py-12 px-6 bg-muted text-foreground">
+        <div class="custom-shape-divider-top">
+              <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                  <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+              </svg>
+          </div>
           <div className="max-w-3xl mx-auto space-y-8">
             <div className="text-center">
-              <h2 className="text-3xl font-bold">What Clients Say</h2>
-              <p className="text-muted-foreground">Hear from some of my satisfied clients.</p>
+              <h2 className="text-3xl font-bold">What People Say</h2>
+              <p className="text-muted-foreground">Hear from some of my clients and colleagues.</p>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-background p-6 rounded-lg shadow-md">
                 <div className="flex items-center mb-4">
                   <Avatar>
                     <AvatarImage src="/placeholder-user.jpg" />
-                    <AvatarFallback>JD</AvatarFallback>
+                    <AvatarFallback>PY</AvatarFallback>
                   </Avatar>
                   <div className="ml-4">
                     <h4 className="font-semibold">John Doe</h4>
@@ -302,7 +877,12 @@ export function Portfolio() {
               </div>
             </div>
           </div>
-        </section>
+          <div class="custom-shape-divider-bottom">
+              <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                  <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+              </svg>
+          </div>
+        </section> */}
         <section id="contact" className="py-12 px-6 bg-primary text-primary-foreground">
           <div className="max-w-3xl mx-auto space-y-8">
             <div className="text-center">
@@ -311,14 +891,14 @@ export function Portfolio() {
             </div>
             <form className="bg-background p-6 rounded-lg shadow-md" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-4">
-                <Input label="Name" placeholder="Enter your name" name="name" value={formData.name} onChange={handleChange} required/>
-                <Input label="Email" type="email" placeholder="Enter your email" name="email" value={formData.email} onChange={handleChange} required/>
+                <Input label="Name" placeholder="Enter your name" name="name" value={formData.name} onChange={handleChange} required />
+                <Input label="Email" type="email" placeholder="Enter your email" name="email" value={formData.email} onChange={handleChange} required />
               </div>
               <div className="my-4">
-                <Input label="Subject" placeholder="Enter the subject" name="subject" value={formData.subject} onChange={handleChange} required/>
+                <Input label="Subject" placeholder="Enter the subject" name="subject" value={formData.subject} onChange={handleChange} required />
               </div>
               <div className="my-4">
-                <Textarea label="Message" placeholder="Enter your message" name="message" value={formData.message} onChange={handleChange} required/>
+                <Textarea label="Message" placeholder="Enter your message" name="message" value={formData.message} onChange={handleChange} required />
               </div>
               <Button type="submit" className="mt-4">
                 Submit
@@ -331,17 +911,65 @@ export function Portfolio() {
         <div className="max-w-3xl mx-auto flex justify-between items-center">
           <p>&copy; 2024 Pooja Yadav. All rights reserved.</p>
           <div className="flex gap-4">
-            <Link href="#" className="hover:text-foreground" prefetch={false}>
+            {/* <Link href="#" className="hover:text-foreground" prefetch={false}>
               <TwitterIcon className="h-6 w-6" />
-            </Link>
+            </Link> */}
             <Link href="#" className="hover:text-foreground" prefetch={false}>
               <LinkedinIcon className="h-6 w-6" />
             </Link>
-            <Link href="#" className="hover:text-foreground" prefetch={false}>
+            {/* <Link href="#" className="hover:text-foreground" prefetch={false}>
               <InstagramIcon className="h-6 w-6" />
-            </Link>
+            </Link> */}
           </div>
         </div>
+
+        {/* services Modal */}
+        {isServiceModalOpen && currentService && (
+          <div className="fixed inset-0 flex items-center justify-center z-50 bg-primary p-8">
+            <div className="bg-muted p-8 rounded-lg shadow-lg w-full">
+              <h3 className="text-2xl font-bold mb-4">{currentService.title}</h3>
+              {currentService.description.map(s => (<div><h4 className="text-xl font-bold mb-2">{s.title}</h4><p className="mb-4">{s.description}</p></div>))}
+              <button
+                className="bg-primary text-white py-2 px-4 rounded hover:bg-primary-foreground"
+                onClick={closeServiceModal}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* PortfolioModal */}
+        {isPortfolioModalOpen && currentPortfolio && (
+          <div className="fixed inset-0 flex items-center justify-center z-50 bg-primary p-8">
+            <div className="bg-muted p-8 rounded-lg shadow-lg w-full">
+              <h3 className="text-2xl font-bold mb-4">{currentPortfolio.client}: {currentPortfolio.names}</h3>
+              {/* {currentPortfolio.description.map(s => (<div><h4 className="text-xl font-bold mb-2">{s.tasks.join('\n')}</h4><p className="mb-4">{s.goals.join('\n')}</p></div>))} */}
+              <h4 className="text-xl font-bold">Tasks</h4>
+              <ul className="mx-8">
+                {currentPortfolio.tasks.map(x => <li>{x}</li>)}
+              </ul>
+              <h4 className="text-xl font-bold">Goals</h4>
+              <ul className="mx-8">
+                {currentPortfolio.goals.map(x => <li>{x}</li>)}
+              </ul>
+              {currentPortfolio.links &&
+              (
+              <><h4 className="text-xl font-bold">Links</h4>
+              <ul className="mx-8">
+                {currentPortfolio.links.map(x => <a href={x} key={x}><li>{x}</li></a>)}
+              </ul>
+              </>)
+              }
+              <button
+                className="bg-primary text-white py-2 px-4 rounded hover:bg-primary-foreground"
+                onClick={closePortfolioModal}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
       </footer>
     </div>)
   );
